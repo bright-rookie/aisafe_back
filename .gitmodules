@@ -1,0 +1,6 @@
+[submodule "data/raw/CMU-MultimodalSDK"]
+	path = data/raw/CMU-MultimodalSDK
+	url = https://github.com/CMU-MultiComp-Lab/CMU-MultimodalSDK
+[submodule "notebooks/CMU-MultimodalSDK-Tutorials"]
+	path = notebooks/CMU-MultimodalSDK-Tutorials
+	url = https://github.com/Justin1904/CMU-MultimodalSDK-Tutorials
