@@ -85,8 +85,8 @@ def extract_video_segments(video_path: str, lab_file: str, output_folder: str) -
 
     # Save the extracted frames as a video clip
     out = cv2.VideoWriter(
-      f"{output_folder}/{utterance_name}.avi",
-      cv2.VideoWriter_fourcc(*"XVID"),
+      f"{output_folder}/{utterance_name}.mp4",
+      cv2.VideoWriter_fourcc(*"avc1"),
       fps,
       (frames[0].shape[1], frames[0].shape[0]),
     )
@@ -101,11 +101,11 @@ def extract_video_segments(video_path: str, lab_file: str, output_folder: str) -
 def main() -> None:
   avi_dir_list = [
     f"data/raw/iemocap/IEMOCAP_full_release/Session{i}/dialog/avi/DivX/"
-    for i in range(2, 6)
+    for i in range(1, 6)
   ]
   lab_dir_list = [
     f"data/raw/iemocap/IEMOCAP_full_release/Session{i}/dialog/lab/Ses0{i}_F/"
-    for i in range(2, 6)
+    for i in range(1, 6)
   ]
 
   for i, directory_pair in enumerate(zip(avi_dir_list, lab_dir_list)):
@@ -116,7 +116,7 @@ def main() -> None:
         continue
       video_path = video_dir + file
       lab_file = lab_dir + f"{file.split('.')[0]}.lab"
-      output_folder = f"../data/interim/iemocap/Session{i + 2}"
+      output_folder = f"../data/interim/iemocap/Session{i + 1}"
       os.makedirs(output_folder, exist_ok=True)
       try:
         extract_video_segments(video_path, lab_file, output_folder)

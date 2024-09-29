@@ -170,3 +170,4 @@ cython_debug/
 *.wav
 *.avi
 *.zip
+*.npz
