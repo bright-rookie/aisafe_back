@@ -20,3 +20,13 @@ pre-commit = ">=3.8.0,<4"
 pytest = ">=8.3.2,<9"
 hypothesis = ">=6.111.2,<7"
 cookiecutter = ">=2.6.0,<3"
+tqdm = ">=4.66.5,<5"
+scikit-learn = ">=1.5.2,<2"
+jupyter = ">=1.1.1,<2"
+pip = ">=24.2,<25"
+python = ">=3.12.6,<4"
+nvtop = ">=3.1.0,<4"
+
+[pypi-dependencies]
+build = ">=1.2.2, <2"
+setuptools = "*"
