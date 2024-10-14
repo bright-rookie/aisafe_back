@@ -17,5 +17,5 @@
 
 <Output 벡터> 
 
-=> final_pred, explainability = [(원인1(str), 관여율1(float)), (원인2(str), 관여율2(float)), (원인3(str), 관여율3(float)), ...]
+=> final_pred, explainability = float(0-1), [(원인1(str), 관여율1(float)), (원인2(str), 관여율2(float)), (원인3(str), 관여율3(float)), ...]
 *현재 임의의 데이터 x_train, y_train을 이용해 training한 XGBoost 사용
