@@ -6,13 +6,13 @@ import numpy as np
 from scipy.optimize import minimize
 
 # CSV 파일을 읽고 첫 번째 행을 변수명으로 사용
-info_data = pd.read_csv("./final_files/Basic_information.CSV" )
-bruise_data = pd.read_csv("./final_files/Bruise.CSV" )
-response_data = pd.read_csv("./final_files/Medical_examination.CSV" )
-lab_data = pd.read_csv("./final_files/EMR_lab.CSV" )
-xray_data = pd.read_csv("./final_files/Fractures.CSV" )
-video_data = pd.read_csv("./final_files/emotion.CSV" )
-true_data = pd.read_csv("./final_files/true_label.CSV" )
+info_data = pd.read_csv("./final_files/Basic_information.csv" )
+bruise_data = pd.read_csv("./final_files/Bruise.csv" )
+response_data = pd.read_csv("./final_files/Medical_examination.csv" )
+lab_data = pd.read_csv("./final_files/EMR_lab.csv" )
+xray_data = pd.read_csv("./final_files/Fractures.csv" )
+video_data = pd.read_csv("./final_files/Emotion.csv" )
+true_data = pd.read_csv("./final_files/True_label.csv" )
 
 # 벡터별로 컬럼
 info_vector_pre = info_data.iloc[:, 1:5]  # column 2-5
