@@ -174,9 +174,6 @@ def model(info, bruise, response, lab, xray, video) :
     # Extract the top 5 causes from the feature importances
     importance = trained_model.get_score(importance_type='weight')
 
-    # Normalize the importance values to sum to 1 for involvement rate calculation
-
-
     all_features = list(importance.keys())
     importance_weights = np.array([importance.get(f, 0) for f in all_features])
 

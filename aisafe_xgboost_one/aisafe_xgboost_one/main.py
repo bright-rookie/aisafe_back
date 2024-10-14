@@ -226,7 +226,7 @@ def model(info, bruise, response, lab, xray, video) :
     pred_xray = model_xray.predict(dnew_xray)
     pred_video = model_video.predict(dnew_video)
 
-        # 예측 값 리스트 생성
+    # 예측 값 리스트 생성
     predictions = [pred_info[0], pred_bruise[0], pred_response[0], pred_lab[0], pred_xray[0], pred_video[0]]
 
     # 최적 가중치를 적용하여 최종 예측 계산
