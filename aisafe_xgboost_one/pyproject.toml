@@ -13,7 +13,7 @@ readme = "README.md"
 dependencies = [
     "pandas", 
     "xgboost", 
-    "sklearn", 
+    "scikit-learn", 
     "numpy", 
     "scipy",                 
 ]
