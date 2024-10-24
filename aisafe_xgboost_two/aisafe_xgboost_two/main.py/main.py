@@ -82,7 +82,6 @@ def get_percentiles(patient_age, patient_sex, patient_height, patient_weight):
     weight_data = load_growth_data(patient_sex, "weight")
 
     if height_data is None or weight_data is None:
-        st.error("성장 데이터 파일을 찾을 수 없습니다.")
         return None, None
 
     # 연령에 따른 데이터 필터링 (데이터 타입을 명시적으로 정수로 변환하여 비교)
