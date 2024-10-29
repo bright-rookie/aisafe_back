@@ -1,0 +1,5 @@
+include LICENSE
+include README.
+include aisafe_xgboost/growth/*
+include aisafe_xgboost/mock_data/*
+include aisafe_xgboost/models/*
