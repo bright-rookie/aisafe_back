@@ -24,8 +24,8 @@ safe-train
 To use the model in python, run the following command:
 
 ```python
-from aisafe_xgboost import model
-prediction, explainability = model(
+>>> from aisafe_xgboost import model
+>>> prediction, explainability = model(
     info = 'data/info.csv',
     bruise = 'data/bruise.csv',
     response = 'data/response.csv',
@@ -33,8 +33,10 @@ prediction, explainability = model(
     video = 'data/video.csv',
     xray = 'data/xray.csv',
 )
-prediction = 75%
-explainability = [("문진정보", 0.5), ("Lab 수치", 0.3), ("X-ray 영상", 0.1), ("진료 영상", 0.1), ("신체 계측치", 0.0), ("멍 정보", 0.0)]
+>>> prediction 
+0.75
+>>> explainability 
+[("문진정보", 0.5), ("Lab 수치", 0.3), ("X-ray 영상", 0.1), ("진료 영상", 0.1), ("신체 계측치", 0.0), ("멍 정보", 0.0)]
 ```
 
 
