@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aisafe_xgboost_one"                   # 패키지 이름
+name = "aisafe_xgboost"                   # 패키지 이름
 version = "0.1.0"                     # 패키지 버전
 description = "An ensemble model made by bright-rookie."
 
