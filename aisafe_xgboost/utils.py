@@ -53,23 +53,29 @@ class MockData:
         heights = self.info_vector_pre.iloc[:, 2]
         weights = self.info_vector_pre.iloc[:, 3]
         info_vector_list = [
-            ParseGrowth(age, height, weight, sex).get_percentiles()
-            for age, height, weight, sex in zip(ages, heights, weights, sexes)
+            ParseGrowth(age, sex, height, weight).get_percentiles()
+            for age, sex, height, weight in zip(ages, sexes, heights, weights)
         ]
         return pd.DataFrame(info_vector_list, columns=info_columns)
+
+    @cached_property
+    def expected_columns(self):
+        types = ['info', 'bruise', 'response', 'lab', 'xray', 'video']
+        dfs = [self.__getattribute__(f"{type}_vector") for type in types]
+        col_names = [df.columns.tolist() for df in dfs]
+        return {type: names for type, names in zip(types, col_names)}
 
 
 class ParseGrowth:
     def __init__(self, patient_age: int, patient_sex: int, patient_height: float, patient_weight: float):
         self.patient_age = int(patient_age) # Patient age must be given in months
+        self.patient_sex = int(patient_sex) # 0 for male, 1 for female
         self.patient_height = patient_height # given in cm
         self.patient_weight = patient_weight # given in kg
-        self.patient_sex = patient_sex # 0 for male, 1 for female
 
     @staticmethod    
     def load_growth_data(sex: int, data_type: str) -> pd.DataFrame:
         sex_list = ["male", "female"]
-        assert sex in [0, 1], "Sex must be given as either 0 or 1"
         assert data_type in ["height", "weight"], "Data type must be either 'height' or 'weight'"
         try:
             file_path = f"{str(GROWTHDIR)}/{data_type}_{sex_list[sex]}.csv"

@@ -7,11 +7,12 @@ from scipy.optimize import minimize
 from aisafe_xgboost.utils import MockData
 
 
-def prepare_with_mock(dataframe, mockdata, y_label):
-    column_idx = 1
+def prepare_with_mock(dataframe, mockdata, y_label, column_idx = 0):
     for df in mockdata:
         start, column_idx = column_idx, column_idx + len(df.columns)
-        yield xgb.DMatrix(dataframe.iloc[:, start:column_idx], label=y_label)
+        df = dataframe.iloc[:, start:column_idx]
+        print(df.columns.tolist())
+        yield xgb.DMatrix(df, label=y_label)
 
 def rmse_loss(weights, predictions, y_test):
     weighted_predictions = sum([w * p for w, p in zip(weights, predictions)])
