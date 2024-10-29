@@ -60,7 +60,7 @@ class MockData:
 
 
 class ParseGrowth:
-    def __init__(self, patient_age: int, patient_height: float, patient_weight: float, patient_sex: int):
+    def __init__(self, patient_age: int, patient_sex: int, patient_height: float, patient_weight: float):
         self.patient_age = int(patient_age) # Patient age must be given in months
         self.patient_height = patient_height # given in cm
         self.patient_weight = patient_weight # given in kg
