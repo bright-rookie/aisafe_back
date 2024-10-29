@@ -8,7 +8,7 @@ MODELDIR = PACKAGEDIR / 'models'
 
 def model(**kwargs):
     # load data
-    dfs = [pd.read_csv(arg) for arg in kwargs.values()]
+    dfs = [pd.DataFrame(arg) for arg in kwargs.values()]
     dmtx = [xgb.DMatrix(df) for df in dfs]
     models = [xgb.Booster(model_file=f"{str(MODELDIR)}/model_{name}.ubj") for name in kwargs.keys()]
     weights = np.load(f"{str(MODELDIR)}/optimal_weights.npy")
