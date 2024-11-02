@@ -20,27 +20,27 @@ class MockData:
     @cached_property
     def info_vector_pre(self):
         return self.info_data.iloc[:, 1:5]
-    
+
     @cached_property
     def bruise_vector(self):
         return self.bruise_data.iloc[:, 1:12]
-    
+
     @cached_property
     def response_vector(self):
         return self.response_data.iloc[:, 1:10]
-    
+
     @cached_property
     def lab_vector(self):
         return self.lab_data.iloc[:, 1:20]
-    
+
     @cached_property
     def xray_vector(self):
         return self.xray_data.iloc[:, 1:10]
-    
+
     @cached_property
     def video_vector(self):
         return self.video_data.iloc[:, 1:31]
-    
+
     @cached_property
     def true(self):
         return self.true_data.iloc[:, 1]
@@ -73,16 +73,18 @@ class ParseGrowth:
         self.patient_height = patient_height # given in cm
         self.patient_weight = patient_weight # given in kg
 
-    @staticmethod    
+    @staticmethod
     def load_growth_data(sex: int, data_type: str) -> pd.DataFrame:
         sex_list = ["male", "female"]
         assert data_type in ["height", "weight"], "Data type must be either 'height' or 'weight'"
+        assert isinstance(sex, int), "Sex must be an integer (0 for male, 1 for female)"
+
         try:
             file_path = f"{str(GROWTHDIR)}/{data_type}_{sex_list[sex]}.csv"
             growth_data = pd.read_csv(file_path)
             growth_data["Age(Months)"] = growth_data["Age(Months)"].astype(int)
             return growth_data
-        
+
         except FileNotFoundError:
             print(f"File not found: {file_path}")
             return None
@@ -90,14 +92,14 @@ class ParseGrowth:
     def calculate_percentile(self, value: float, age_data: pd.DataFrame):
         percentiles = age_data.columns[1:].astype(
             float
-        ) 
+        )
         values = age_data.iloc[self.patient_age, 1:].values.astype(float).tolist()
 
         if value <= values[0]:
             return 0.01*100
         elif value >= values[-1]:
             return 0.99*100
-        
+
         percentile = 0
 
         for i, val in enumerate(values):
@@ -113,7 +115,7 @@ class ParseGrowth:
             break
 
         return round(percentile, 2)
-    
+
     def get_percentiles(self):
         height_data = self.load_growth_data(self.patient_sex, "height")
         weight_data = self.load_growth_data(self.patient_sex, "weight")
