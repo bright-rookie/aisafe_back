@@ -74,13 +74,12 @@ class ParseGrowth:
         self.patient_weight = patient_weight # given in kg
 
     @staticmethod
-    def load_growth_data(sex: int, data_type: str) -> pd.DataFrame:
+    def load_growth_data(patient_sex: int, data_type: str) -> pd.DataFrame:
         sex_list = ["male", "female"]
         assert data_type in ["height", "weight"], "Data type must be either 'height' or 'weight'"
-        assert isinstance(sex, int), "Sex must be an integer (0 for male, 1 for female)"
 
         try:
-            file_path = f"{str(GROWTHDIR)}/{data_type}_{sex_list[sex]}.csv"
+            file_path = f"{str(GROWTHDIR)}/{data_type}_{sex_list[patient_sex]}.csv"
             growth_data = pd.read_csv(file_path)
             growth_data["Age(Months)"] = growth_data["Age(Months)"].astype(int)
             return growth_data
