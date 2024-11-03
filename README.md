@@ -9,7 +9,7 @@ A backend leveraging gradient boosting machines and multimodal neural networks f
 ## Installation
 
 ```bash
-pip install -e .
+pip install aisafe_xgboost
 ```
 
 ## Usage
@@ -26,12 +26,12 @@ To use the model in python, run the following command:
 ```python
 >>> from aisafe_xgboost import model
 >>> prediction, explainability = model(
-    info = 'data/info.csv',
-    bruise = 'data/bruise.csv',
-    response = 'data/response.csv',
-    lab = 'data/lab.csv',
-    video = 'data/video.csv',
-    xray = 'data/xray.csv',
+    info = info, # Iterable of Length 4 [Patient Age, Sex, Height Percentile, Weight Percentile]
+    bruise = bruse, # Iterable of Length 11 [float]
+    response = response, # Iterable of Length 9 [int]
+    lab = lab, # Iterable of Length 19 [float]
+    xray = xray, # Iterable of Length 9 [float]
+    video = video, # Iterable of Length 30 [float]
 )
 >>> prediction 
 0.75
