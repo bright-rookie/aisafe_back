@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import root_mean_squared_error
 import numpy as np
 from scipy.optimize import minimize
-from aisafe_xgboost.utils import MockData
+from .utils import MockData
 
 
 def prepare_with_mock(dataframe, mockdata, y_label, column_idx = 0):
@@ -49,7 +49,7 @@ def main():
     initial_weights = np.ones(6) / 6
     constraints = {'type': 'eq', 'fun': lambda w: np.sum(w) - 1}
     bounds = [(0, 1)] * 6
-    rmse = lambda w: rmse_loss(w, predictions, y_test)
+    rmse = lambda w: rmse_loss(w, predictions, y_test) #noqa
     result = minimize(rmse, initial_weights, bounds=bounds, constraints=constraints)
     optimal_weights = result.x
 
