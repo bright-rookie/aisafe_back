@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import root_mean_squared_error
 import numpy as np
 from scipy.optimize import minimize
-from .utils import MockData
+from aisafe_xgboost.utils import MockData
 
 
 def prepare_with_mock(dataframe, mockdata, y_label, column_idx = 0):

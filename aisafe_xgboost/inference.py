@@ -2,7 +2,7 @@ import pandas as pd
 import xgboost as xgb
 import numpy as np
 from pathlib import Path
-from .utils import MockData
+from aisafe_xgboost.utils import MockData
 
 PACKAGEDIR = Path(__file__).parent.absolute()
 MODELDIR = PACKAGEDIR / 'models'
@@ -31,11 +31,11 @@ def model(**kwargs):
 
 if __name__ == "__main__":
     output=model(
-    info=(120,0,11.67,13.84),
-    bruise=[0 for _ in range(11)],
-    response=[0 for _ in range(9)],
-    lab=[0 for _ in range(19)],
-    xray=[0 for _ in range(9)],
-    video=[0 for _ in range(30)],
+        info=(120,0,11.67,13.84),
+        bruise=[0 for _ in range(11)],
+        response=[0 for _ in range(9)],
+        lab=[0 for _ in range(19)],
+        xray=[0 for _ in range(9)],
+        video=[0 for _ in range(30)],
     )
     print(f"Final prediction: {output}")
