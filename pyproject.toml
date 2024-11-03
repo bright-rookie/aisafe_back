@@ -11,13 +11,12 @@ readme = "README.md"
 license = {file = "LICENSE"}
 classifiers = [
     "Development Status :: 3 - Alpha",
-    "Environment :: Console",
+    "Environment :: Web Environment",
     "Intended Audience :: Healthcare Industry",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: POSIX",
     "Programming Language :: Python :: 3 :: Only",
-    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
 ]
 keywords = ["child abuse", "gradient boosting machine"]
 dependencies = [
